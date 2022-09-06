@@ -1,0 +1,201 @@
+#super /u /i /p /y /j /k /q /f /
+#super + shift /right /left /q /space /0 /r /tab
+#alt /tab /
+#dmenu_record
+super + r
+    dmenu_record
+#Dmenu run
+super + shift + p
+    dmenu_ping 
+#dmenu scrot super + Print
+    dmenu_img
+#dmenu _open 
+super + p
+    dmenu_open 
+#pronounce_this
+super + b
+    pt_all
+#    dmenu_bookmark
+#downloads translate
+super + t
+    dmenu_translate   
+#dmenu_blu
+super + d
+    dmenu_blu
+#connect to the dmenu_wifi
+super + s
+    dmenu_wifi
+#learn_eng_vocabulary
+super + g
+    pt_de 
+#learn_german_vocabulary
+super + e
+    pt_en
+#pomo start
+super + o
+    pomo start 
+#newsboat
+super + c
+    kitty -e newsboat
+#dmenu login
+super + x
+    dmenu_login
+super + m
+    kitty -e gdu
+#help keybindings
+super + h
+    hg --help
+#    help
+#sxiv wallpapers
+super + v
+    cd /home/dy/pic/wallpapers && sxiv -t -b * 
+#vimwiki
+super + l
+    kitty -e nvim -c ":VimwikiIndex" 
+#play/stop mocp
+super + Up
+    mocp -M .config/moc -G
+#mocp next
+super + Left
+    mocp -M .config/moc -r
+#mocp previous
+super + Right
+    mocp -M .config/moc -f
+#Pomo stop
+super + shift + o
+    killall pomo && dunstify "Stoping Pomo ..." || dunstify "No Pomo process is running"
+#Add english words
+super + shift + g
+    learn_eng
+#add words german words
+super + shift + e
+    learn_german
+#dmenu_todo
+super + shift + l
+   shotcut --QT_SCALE_FACTOR 1.5
+#htop
+super + shift + h
+    kitty -e htop
+#downlaod wallpapers
+super + shift + v
+    dmenu_waldl
+#gdu
+super + shift + i
+    kitty -e gdu 
+#reload sxhkd
+super + shift + s
+    pkill -USR1 -x sxhkd
+#Getpatg dir
+super + shift + d
+    find ~ -type d | dmenu -i -l 15 -p "Getpath Dir: " | tr -d '\n' | xclip -selection clipboard
+#getpath
+super + shift + b
+   find ~ -type f | dmenu -i -l 15 -p "Getpath Files: " | tr -d '\n' | xclip -selection clipboard
+alt + r
+    stream end_s
+# dmenu_show_pass
+alt + 1 
+    dmenu_show_pass
+#mocp 
+alt + o
+    kitty -e mocp -M .config/moc
+#weather
+alt + h
+    kitty --hold -e curl wttr.in/eljadida
+
+#ALT
+#empty the clipboard
+alt + e
+    kitty --hold sh -c "cat doc/files/emojies  | fzf --reverse | cut -d' ' -f1 | tr -d '\n' | xclip -selection clipboard" 
+#Quick man page
+alt + i
+   dmenu_run 
+#wallpapers wallheaven
+alt + v
+    cd pic/wallhaven && sxiv -t -b * 
+#Notetaking
+alt + n
+    kitty -e notetaker
+#ytfzf mpv/browser
+alt + l
+    ytfzf_mpv
+#dmenu_web
+alt + j
+   dmenu_web 
+#Dmenu_calc
+alt + c
+    dmenu_calc
+#dmenu_clone
+alt + g
+    dmenu_clone
+#dmenu hotspot
+alt + s
+    dmenu_wf
+#dmenu_mount
+alt + y
+    dmenu_mount
+#telegram
+alt + Right
+
+    telegram-desktop
+
+#calcurse
+alt + Down
+    librewolf "https://b-anas.me" 
+#dmenu_pass
+alt + k
+   dmenu_pass
+#notetaker pdf
+alt + b
+    cd /home/dy/doc/notes && pandoc note*.md -o notes.pdf && zathura notes.pdf
+#volume up
+XF86AudioRaiseVolume
+    volume up
+#volume down
+XF86AudioLowerVolume 
+    volume down
+# dmenu display 
+alt + d
+    dmenu_display
+#clipmenu
+alt + p
+    clipmenu -i -fn "Monokai Nerd Font:size=22" -nb "#222222" -nf "#bbbbbb" -sb "#475053" -sf "#eeeeee"
+#screeenshot full
+alt + Print
+    scrot -u '%Y-%m-%d-%s\_$wx$h\_scrot.png' -e 'mv $f \~/pic/Screenshots/ \&amp; sxiv \~/pic/Screenshots/$f'
+#brightness up 20
+alt + XF86MonBrightnessUp
+    brightness up 20
+#brightness down 20
+alt + XF86MonBrightnessDown
+    brightness down 20
+#Mute
+XF86AudioMute
+    volume mute
+#amixer -D pulse set Master 1+ toggle && dunstify -i notification-audio-volume-muted -t 1000 -r 2599 -u normal "Mute"
+#Play
+XF86AudioPlay
+    playerctl play-pause
+#play next
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+XF86AudioStop
+    playerctl stop
+XF86MonBrightnessUp
+    brightness up 1
+XF86MonBrightnessDown
+    brightness down 1
+#Copy to clipboard
+
+#screenshoft
+Print
+    cd /home/dy/pic/screen_shots_luke && dmenu_screenshot
+#  scrot --select '%Y-%m-%d-%s\_$wx$h\_scrot.png' -e 'mv $f \~/pic/Screenshots/ \&amp; sxiv \~/pic/Screenshots/$f'
+#kill dwm
+alt + ctrl + d
+    kill $(pgrep -x dwm)
+#kill xorg
+alt + ctrl + x
+    kill $(pgrep -x Xorg)

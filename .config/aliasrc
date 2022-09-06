@@ -1,0 +1,117 @@
+alias getpath='find ~ -type f | fzf --reverse | sed "s/\.[/]//" | tr -d '\n' | c'
+alias tl='task list'
+alias fopen='fuzzy-global'
+alias hg='. hg'
+alias ncdu='gdu'
+alias mkcd="mkdir $1 && cd $1"
+alias dl='cd /home/dy/dl'
+alias doc='cd /home/dy/doc'
+alias ms='cd /home/dy/ms'
+alias mys='cd /home/dy/doc/linux_n_stuff/my_scripts'
+alias vm='cd /home/dy/doc/vimwiki'
+# reopen the last edited file
+alias lvi='nvim -c "normal '\''0"'
+alias showpass='nmcli dev wifi show-password'
+alias week='date +%V'
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ...="cd ../.."
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+# mergepdf pdf1 pdf2 etc..
+alias mergepdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_merged.pdf' 
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+alias ....="cd ../../.."
+alias ~="cd ~"
+alias vi='nvim'
+alias diff="diff --color=auto"
+alias ip="ip -color=auto"
+alias tree='tree -C'
+alias smake="sudo make && sudo make install"
+alias ka="killall"
+alias pc="sudo pacman"
+alias pcs="sudo pacman -S"
+alias pcr="sudo pacman -R"
+alias zh="zathura"
+alias RMcomments='sed -i "s/\s*#.*//g ; /^$/ d"'
+alias aligntext="sed 's/^[ \t ]*//'"
+alias rmcomments='sed "s/\s*#.*//g ; /^$/ d"'
+# alias go='cd /run/media/dy && ls' */
+alias cd..='cd ..'
+alias update='sudo pacman -Syyu'
+alias up='sudo pacman -Syyu'
+alias nz="$EDITOR ~/.zshrc"
+alias show='nmcli dev wifi list'
+alias sc='nmcli dev status'
+alias ls='ls -hN --color=auto --group-directories-first'
+alias la='ls -a'
+alias dir='dir --color=auto'
+alias ll='ls -alF'
+alias l='ls -CF'
+alias sys='sudo systemctl'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias open='xdg-open'
+alias services='service --status-all'
+alias v='xclip -o'
+alias c='xclip -selection clipboard'
+alias f='find -type f -iname'
+alias s='macchanger -s wlan0'
+alias r='sudo macchanger -r wlan0'
+alias g='grep -i -n'
+alias q='/home/dy/doc/files/cht.sh'
+alias ..='cd ..'
+alias rm='rm -i'
+alias df='df -h'
+alias give-me-azerty-be="sudo localectl set-x11-keymap be"
+alias give-me-qwerty-us="sudo localectl set-x11-keymap us"
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
+alias free="free -mt"
+alias wget="wget -c"
+alias userlist="cut -d: -f1 /etc/passwd"
+alias merge="xrdb -merge ~/.Xresources"
+alias pacman='sudo pacman --color auto'
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias update-fc='sudo fc-cache -fv'
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias hw="hwinfo --short"
+alias yayskip='yay -S --mflags --skipinteg'
+alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
+alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
+alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
+alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl | fzf --reverse"
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias rg="rg --sort path"
+alias jctl="journalctl -p 3 -xb"
+alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
+alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
+alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
+alias nfstab="sudo $EDITOR /etc/fstab"
+alias nnsswitch="sudo $EDITOR /etc/nsswitch.conf"
+alias nsamba="sudo $EDITOR /etc/samba/smb.conf"
+alias ngnupgconf="sudo nano /etc/pacman.d/gnupg/gpg.conf"
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+alias fix-gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+alias fix-gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+alias fix-keyserver="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ ; echo 'done'"
+alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
+alias big="expac -H M '%m\t%n' | sort -h | nl"
+alias unhblock="hblock -S none -D none"
+alias probe="sudo -E hw-probe -all -upload"
+alias sysfailed="systemctl list-units --failed"
+alias xd="ls /usr/share/xsessions"
+alias rmgitcache="rm -r ~/.cache/git"
+alias today_files_24h='find -mtime -1 | fzf --reverse'
+alias today_files='find -newermt $(date +%F) | fzf --reverse'

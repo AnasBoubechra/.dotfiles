@@ -1,0 +1,12 @@
+bindkey -s '^y' 'sc\n'
+bindkey -s '^a' 'sxiv -t -f -b *\n'
+bindkey -s '^f' '(df && udisksctl status)\n'
+bindkey -s '^b' 'dwn\n'
+bindkey '^p' fuzzy-global
+bindkey -s '^z' "find . -type f |fzf -e --multi \n"
+bindkey '^h' cdfzf
+bindkey '^o' global_search
+bindkey -s '^t' 'show\n'
+bindkey -s '^n' 'res\n'
+bindkey \^K kill-line
+#curl wttr.in for the weather
